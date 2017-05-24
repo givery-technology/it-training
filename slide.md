@@ -129,8 +129,6 @@
 
 
 ### 2.IoTの普及(脳みそ搭載のデバイス)
-
-
 [IoT(Internet of Things)](http://e-words.jp/w/IoT.html)の展開
 - 様々なデバイス
 - またそれを制御する周辺機器が増えた
@@ -147,10 +145,8 @@
 
 
 
-### 3.APIの公開
-
-
-誰でもが自社サービスのデータ・機能を利用することができるようになること
+### 3.APIの公開(オープンイノベーション)
+誰でもが自社サービスのデータ・機能を利用することができるようになってきた。
 
 
 [オープンイノベーション](http://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%A4%E3%83%8E%E3%83%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)
@@ -170,6 +166,54 @@
 
 * [日本の全エンジニアに捧ぐ！現在公開されているAPI一覧【2013年版】](http://www.find-job.net/startup/api-2013)
 * [【2014年度版】すべてのビジネスマンに役立つAPI一覧](http://keiei.freee.co.jp/2014/07/10/api/)
+
+
+
+## 実際にWebAPIを体験しよう！(お天気情報)
+http://weather.livedoor.com/forecast/webservice/json/v1?city=120010
+
+
+http:// => HTTPリクエスト(GET)  
+weather.livedoor.com/forecast/webservice/json/v1 => ベースURI  
+?city=120010 => クエリ
+
+※これはあまり良いAPIではないが
+
+
+綺麗なAPI  
+https://api.github.com/users/maximum80  
+http://qiita.com/api/v2/users/maximum80
+
+
+
+## 出てきた用語集
+#### API
+Application Programming Interface  
+ソフトウェアコンポーネントが互いにやりとりするのに使用するインタフェースの仕様
+
+
+#### URI
+Uniform Resource Identifier  
+名前または場所を識別する書き方のルールの総称
+#### URL
+Uniform Resource Locator  
+場所を示す書き方のルール
+
+
+#### エントリポイント
+プログラムを実行するうえで、プログラムやサブルーチンの実行を開始する場所のこと
+#### エンドポイント
+APIにアクセスするためのURI
+
+
+#### リクエスト
+クライアントがWebサーバーへ送信する要求のこと。
+#### クエリ
+データベース管理システムに対する問合せ（処理要求）のこと。データの抽出や更新などの処理要求を文字列で表す。処理対象のテーブルやデータの抽出条件、並べ方などを指定する。
+
+
+#### レスポンスデータ
+そのまんま
 
 
 
