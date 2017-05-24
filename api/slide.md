@@ -135,7 +135,7 @@
 
 
 ### 事例
-![](assets/images/sony-tennis.png)
+![](../assets/images/sony-tennis.png)
 
 
 * RaspberryPI、インテルEdison等の超小型コンピュータの普及
