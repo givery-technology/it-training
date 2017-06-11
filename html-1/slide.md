@@ -169,7 +169,66 @@ title要素の内容は、ブラウザのタイトルバーに表示されます
 
 
 
-### 1-4. HTML基本構造　まとめ
+### 1-4. ドキュメントツリー
+
+
+#### ドキュメントツリーとは
+
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+</head>
+<body>
+</body>
+</html>
+```
+
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+
+HTMLは要素の **入れ子** によって構成されており、これをツリー状に表したものが **ドキュメントツリー** です。
+
+
+#### 親要素と子要素
+
+
+![](https://s3-ap-northeast-1.amazonaws.com/mash-jp/staging/uploads/3501/4a2c3f3c7fbefcfdec7ee7e4ae5482c203b3ac01.3501.original.png?1488165258)
+
+
+ある要素の上位にある要素を**親要素**<br>
+下位にある要素を**子要素**と呼びます。
+
+
+この空白挿入による字下げのことを**インデント**と呼びます。<br>
+適切にインデントを利用し、**人に見やすく書くこと**を今後心掛けましょう。
+
+
+![](https://s3-ap-northeast-1.amazonaws.com/mash-jp/staging/uploads/3501/65609286cc04ece831a844984a6bc9eb80450cf7.3500.original.png?1488165257)
+
+
+#### TIPS
+- 機械は **半角英数字** しかHTMLとして認識できません。
+- 全角スペースは機械にとって**ゴキブリ**です。
+- 殲滅してください
+
+
+
+### 1-5. HTML基本構造　まとめ
 
 #### DOCTYPE宣言
 HTMLのバージョン情報を宣言する。
@@ -179,11 +238,13 @@ HTML文書のルートを表す。全ての要素はhtml要素の中に記述す
 
 #### head要素
 HTML文書自体の情報(ヘッダ)を表す。html要素の最初の要素として記述する。
+
+
 #### meta要素
 文章に関する情報(メタデータ)を表す。
-
-
 #### title要素
 HTML文書の表題を表す。ブラウザのタイトルバーに要素の内容が表示される。
+
+
 #### body要素
 文章の内容を記述する領域を表す。
