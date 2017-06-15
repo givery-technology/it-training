@@ -17,7 +17,7 @@
 簡単なWebページをつくれるようになろう
 
 
-[Web名刺](mycard/index.html)
+[Web名刺](mycard/mycard.html)
 
 
 
