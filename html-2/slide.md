@@ -41,7 +41,8 @@
 2. h1~h6要素(見出しタグ)
 3. `<div>`要素と`<p>`要素
 4. `<ul>`要素と`<li>`要素
-5. まとめ
+5. `<table>`要素
+6. まとめ
 
 
 ### 今日のゴール
@@ -330,12 +331,12 @@ div、h1～h6、p、ul、dl、ol、li、span、img、strong、em…など
           <p>株式会社ギブリー取締役。エンジニアの市場価値を高めるために仕事をしています。
           CODEPREPというオンラインプログラミング学習サービスをつくっています。
           </p>
-          <h2>基本情報</h2>
+          <h3>基本情報</h3>
           <ul>
             <li>年齢：27歳</li>
             <li>性別：男性</li>
           </ul>
-          <h2>趣味・特技</h2>
+          <h3>趣味・特技</h3>
           <ol>
             <li>プログラミング</li>
             <li>子育て</li>
@@ -372,7 +373,114 @@ div、h1～h6、p、ul、dl、ol、li、span、img、strong、em…など
 
 
 
-## 5. まとめ
+## 5. `<table>`要素
+
+```
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>新田章太のプロフィール</title>
+    </head>
+    <body>
+        <h1>新田章太</h1>
+        <h2>基本プロフィール</h2>
+        <div class="profile">
+          <p>株式会社ギブリー取締役。エンジニアの市場価値を高めるために仕事をしています。
+          CODEPREPというオンラインプログラミング学習サービスをつくっています。
+          </p>
+          <h3>基本情報</h3>
+          <ul>
+            <li>年齢：27歳</li>
+            <li>性別：男性</li>
+          </ul>
+          <h3>趣味・特技</h3>
+          <ol>
+            <li>プログラミング</li>
+            <li>子育て</li>
+          </ol>
+          <h3>学歴・経歴</h3>
+          <table border="1">
+            <tr>
+              <th>年月日</th>
+              <th>学歴・職歴</th>
+            </tr>
+            <tr>
+              <td>2008年3月</td>
+              <td>千葉県立船橋東高校 卒業</td>
+            </tr>
+            <tr align="center">
+              <td>2008年4月</td>
+              <td>筑波大学 入学</td>
+            </tr>
+            <tr>
+              <td>2012年3月</td>
+              <td>筑波大学 卒業</td>
+  　         </tr>
+          </table>
+        </div>
+    </body>
+</html>
+
+```
+
+
+### 5-1. `<table>`要素とは
+
+
+ブロック要素の一つで、その名の通り、「テーブル（表）」を作成するためのタグです。
+
+
+![](http://udemy.benesse.co.jp/wp-content/uploads/table-large.png)
+
+
+このような表は、table要素と、**th要素**、**tr要素**、**td要素**を組み合わせることによって作成できます。
+
+
+### 5-1. th要素
+
+
+##### th = table header（テーブルの見出し）
+![](http://udemy.benesse.co.jp/wp-content/uploads/th.png)
+th要素では、表の「見出し」を作成することができます。上記の表のイメージだと、「名前」と「背番号」がth要素です。
+
+
+### 5-2. tr・td要素
+
+
+#### tr要素
+##### tr = table row（テーブルの行）
+![](http://udemy.benesse.co.jp/wp-content/uploads/tr-large.png)
+tr要素は、表の行を定義するための要素です。
+
+
+#### td要素
+##### td = table data
+![](http://udemy.benesse.co.jp/wp-content/uploads/td-large.png)
+td要素は、表のデータを入れるための要素です。
+
+
+### 5-3. table要素に追加できる属性の紹介
+
+
+#### border属性（枠線）
+``<table border>`を指定することで、テーブルに枠線を表示させることができます。これはborder属性と呼ばれています。
+
+
+もし仮に、border属性を指定しなければ、枠線が消えます。
+
+
+#### align属性（整列）
+align属性は、要素内容の配置方向を設定するための属性です。
+
+
+tr要素を中央寄せ（center）にするには、tr要素に「align=”center”」というコードを記述します。
+
+
+th要素はデフォルトで中央寄せ（center）になります。
+
+
+## 6. まとめ
 
 
 ### ブロック要素とインライン要素
