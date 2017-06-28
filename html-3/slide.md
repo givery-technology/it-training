@@ -94,9 +94,10 @@
     </head>
     <body>
         <h1>新田章太</h1>
+        <a href="https://facebook.com/maximum80"><img src="./images/avatar.png" alt="新田章太のプロフィール画像" width="150" height="150"></a>
         <h2>基本プロフィール</h2>
         <div class="profile">
-          <p>株式会社ギブリー取締役。エンジニアの市場価値を高めるために仕事をしています。
+          <p><a href="https://givery.co.jp" target="_black" rel="nofollow">株式会社ギブリー</a>取締役。エンジニアの市場価値を高めるために仕事をしています。
           CODEPREPというオンラインプログラミング学習サービスをつくっています。
           </p>
           <h3>基本情報</h3>
