@@ -79,10 +79,9 @@
 ## 今日学習すること
 ### HTMLの高度なメタ要素を理解しよう
 1. OGPとは
+2. OGPの種類と設定方法
 2. Facebookの設定
-3. Twitterの設定
-4. 文章を加工する様々なインライン要素
-5. まとめ
+3. Twitter Cardの設定
 
 
 ### 今日のゴール
@@ -93,9 +92,34 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
+        <!-- Open Graph Protocol の設定-->
+
+        <meta property="og:title" content="新田章太のプロフィール" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://givery-technology.github.io/it-training/html-4/mycard/index.html" />
+        <meta property="og:image" content="https://givery-technology.github.io/it-training/html-4/mycard/images/haru.jpg" />
+        <meta property="og:site_name" content="新田章太のプロフィール" />
+        <meta property="og:description" content="株式会社ギブリー取締役。エンジニアの市場価値を高めるために仕事をしています。CODEPREPというオンラインプログラミング学習サービスをつくっています。" />
+        <!-- ここまで -->
+
+        <!-- Facebookの設定 -->
+        <meta property="fb:app_id" content="120388268586719" />
+        <!-- Twitter Cardの設定-->
+        <meta name="twitter:site" content="@maximum_80" />
+        <meta name="twitter:card" content="summary" />
+
         <title>新田章太のプロフィール</title>
     </head>
     <body>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10&appId=812950015465567";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
         <h1>新田章太</h1>
         <a href="https://facebook.com/maximum80"><img src="./images/avatar.png" alt="新田章太のプロフィール画像" width="150" height="150"></a>
         <h2>基本プロフィール</h2>
@@ -133,6 +157,7 @@
   　         </tr>
           </table>
         </div>
+        <div class="fb-share-button" data-href="https://givery-technology.github.io/it-training/html-4/mycard/index.html" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgivery-technology.github.io%2Fit-training%2Fhtml-4%2Fmycard%2Findex.html&amp;src=sdkpreparse">シェア</a></div>
     </body>
 </html>
 ```
@@ -142,56 +167,21 @@
 
 
 
-## 1. ブロック要素とインライン要素
+## 1. OGPとは
 
 
-要素は **ブロック要素** と **インライン要素** に大別されます。
+### OGP
+OGP とは [Open Graph Protocol (オープン・グラフ・プロトコル)] の略称です。3つの言葉の頭文字を合わせて、OGP と称されています。
 
 
-### 1-1. ブロック(レベル)要素
+OGPはもともと、Facebook が策定した仕様です。今では Facebook だけではなく、TwitterやLINEなど、様々なSNSでも利用されるようになりました。
 
 
-`<div>` `<p>` などのブロック要素は、<br>
-ほとんどのブラウザでブロック要素の前後に改行が入ります。
-
-
-#### 代表的なブロック要素
-```
-<address>、<blockquote>、<center>、
-<div>、<dl>、<fieldset>、
-<form>、<h1>-<h6>、<hr>、
-<noframes>、<noscript>、
-<ol>、<p>、<pre>、<table>、<ul>
-```
-
-
-### 1-2. インライン要素
-
-
-`<span>` `<strong>` などのインライン要素は改行しないので、<br>
-ブロック要素の中で使用します。
-
-
-#### 代表的なインライン要素
-```
-<a>、<abbr>、<acronym>、<b>、<basefont>、
-<bdo>、<big>、<br>、<cite>、<code>、<dfn>、
-<em>、<font>、<i>、<img>、<input>、
-<kbd>、<label>、<q>、<s>、<samp>、<select>、
-<small>、<span>、<strike>、<strong>、<sub>、
-<sup>、<textarea>、<tt>、<u>、<var>
-```
-
-
-#### 1-3. まとめ
-|ブロック要素|インライン要素|
-|---|---|
-|前後に改行が入る|前後に改行が入らない|
-|・div<br>・p(段落)<br>・h1~h6(見出し)|・span<br>・strong(強調)<br>・img(画像)|
+OGPを利用すると、リンクの元となるコンテンツにどのような情報が含まれているか、効率良く伝えることができます。
 
 
 
-## 2. img要素
+## 2. OGPの設定方法
 
 
 ```
@@ -199,242 +189,142 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>新田章太のプロフィール</title>
-    </head>
-    <body>
-        <h1>新田章太</h1>
-        <img src="./images/avatar.png" alt="新田章太のプロフィール画像" width="150" height="150">
-        <h2>基本プロフィール</h2>
-        <div class="profile">
-          <p>株式会社ギブリー取締役。エンジニアの市場価値を高めるために仕事をしています。
-          CODEPREPというオンラインプログラミング学習サービスをつくっています。
-          </p>
+        <!-- Open Graph Protocol の設定-->
+
+        <meta property="og:title" content="新田章太のプロフィール" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://givery-technology.github.io/it-training/html-4/mycard/index.html" />
+        <meta property="og:image" content="https://givery-technology.github.io/it-training/html-4/mycard/images/haru.jpg" />
+        <meta property="og:site_name" content="新田章太のプロフィール" />
+        <meta property="og:description" content="株式会社ギブリー取締役。エンジニアの市場価値を高めるために仕事をしています。CODEPREPというオンラインプログラミング学習サービスをつくっています。" />
+        <!-- ここまで -->
 ```
 
 
-### ToDo
-- Mycardのフォルダ内に`images`というフォルダを作成
-- 作成したフォルダ内に、表示させたい画像を保存
-- サンプル通りのコードを記載
+### og:site_name
+このコンテンツが含まれるウェブサイトの名前を記述しています。
 
 
-### 2-1. img要素とは
+### og:title
+リンク元のコンテンツのタイトルを記述します。htmlの`<title>`タグとほぼ同じ情報であることが多いです。
 
 
-イメージ要素とは、HTML文書に埋め込まれる画像です。　　
-内容となるテキストを持たない空要素となります。
+### og:type
+リンク元にはどんな種類のコンテンツが含まれているかを記述します。
 
 
-src属性 : 画像へのURL
-alt属性 : 画像の代替テキスト
+#### website
+```<meta property="og:type" content="website" />```  
+ウェブサイトのTOPページに指定します。
+#### article
+```<meta property="og:type" content="artcle" />```  
+ウェブサイトやブログのTOPページ以外のときに指定します。
 
 
-### 2-2. alt属性とは
-<img>要素の alt 属性は、画像が見られない場合の情報となる代替テキストです。
+一般的に、ウェブサイトやブログの場合は `article` と書くケースが大多数です。
+og:typeには、他にも `place` や `music` など、スマホアプリで使うときに便利なタグも存在します。
 
 
-画像が表示出来ない場合、或いは画像が見られない場合には、alt 属性の値となっているテキストを画像代わりに表示する事で、内容が理解出来るようになります。
+### og:url
+リンク元のURLを記述します。
 
 
-**従って、alt 属性は src 属性同様、必ず記述すべき属性と言えます。**
+#### 絶対パス（OK）
+```<meta property="og:url" content="https://maximum80.com/simages/">```
+#### 相対パス（NG）
+```<meta property="og:url" content="/images/">```
 
 
-### 2-3. [TIPS]alt 属性に何を記述すべきか。
-必ず画像と代替できるテキスト=「画像と同等の意味を持つテキスト」  
-意味を持たない画像はalt=""とする
+### og:image
+リンク元の内容を表す画像URLを指定します。ここに記述されたURLの画像が、SNS上でシェアされます。>
 
 
-悪い例
-```
-alt ="新田章太"
-```
-いい例
-```
-alt="新田章太のプロフィール画像"
-```
+#### 絶対パス（OK）
+`<meta property="og:image" content="https://maximum80.com/images/logo.jpg">`
+#### 相対パス（NG）
+`<meta property="og:image" content="/images/logo.jpg">`
 
 
-検索エンジンのロボット(クローラー)は、画像のテキスト等をよむことが出来ないので、alt属性のテキストを読み取ります。
+### og:description
+リンク元のコンテンツの概要を記述します。ここに記述された文章が、SNS上でシェアされます。
 
 
 
-## 3. a要素(アンカー要素)
-
-
-```
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>新田章太のプロフィール</title>
-    </head>
-    <body>
-        <h1>新田章太</h1>
-        <img src="./images/avatar.png" alt="新田章太のプロフィール画像" width="150" height="150">
-        <h2>基本プロフィール</h2>
-        <div class="profile">
-          <p><a href="https://givery.co.jp" target="_black" rel="nofollow">株式会社ギブリー</a>取締役。エンジニアの市場価値を高めるために仕事をしています。
-          CODEPREPというオンラインプログラミング学習サービスをつくっています。
-          </p>
-```
-
-
-### 3-1. `<a>`タグ とは
-
-
-#### a = anchor(アンカー)
-<a>タグとはHTMLのインライン要素の一種です。<a>は「アンカー(anchor)」の略で、リンクの出発点と到達点を指定するために使われます。
-
-
-### 3-2. よく使われる属性
-
-
-#### href属性
-指定された値のファイルにリンクを張ります。開始タグと終了タグで囲まれたテキストがアンカーテキストになります。値は相対パスでも絶対パスでも問題ありません。
-
-
-#### target属性
-リンク先ページを別画面で開くか、同じ画面で開くかを設定します。
-
-
-target="_black" を指定すると別タブで開きます。
-
-
-#### rel属性
-対象となるファイルへの関係を指定します。属性値としてnext、prev、nofollowなどがあります。
-
-
-
-### 3-3. [TIPS] aタグの重要性(2つの注意)
-
-
-検索エンジンからの評価において「サイトに対しての被リンク」は、非常に重きをおいている要素だからです。
-
-
-#### [注1]アンカーテキストには、リンク先ページを端的に表す文字列を設定する
-
-
-主に「内部リンク（同じドメイン内のページヘのリンク）」に関して注意すべき事ですが  
-検索エンジンはサイト内で巡っているリンク（内部リンク）もチェックして「評価」に加えています。
-
-
-その為、内部リンクを設定する場合は、「リンク先ページを端的に表した文字列」を設定してあげる必要があります。
-これによって、検索エンジン（クローラー）は、リンク先のページを正しく認識することができます。
-
-
-#### 例
-悪い例
-```
-ブログページは<a href="#">コチラ</a>
-```
-良い例
-```
-<a href="#">ブログページ</a>
-```
-
-
-#### [注2]他のドメインに関してのリンクには、「rel=”nofollow”」を指定する
-
-
-簡単に言うと、自分のサイトのページの価値（検索エンジンからの評価）を、他のサイトへ分散しないために、この「rel=”nofollow”」を利用します。
-
-
-厳密に言うと、「PR（ページランク）」といって、「PR（ページランク）」とは、検索エンジンからの評価の指標となるもので、ページランクが高いサイトほど、検索エンジンからの評価が高くなります。
-
-
-この「ページランク」が、デフォルトでは「リンク先ページ」に分散されてしまうのです。
-
-
-「内部リンク」の場合は、自分のサイトなので、分散されても良いと思いますが、他人のサイトへ「ページランク」が分散されてしまうのは、それだけ「自分のサイトのページ」の評価が下がってしまうので、よろしくありません。
-
-
-そこで、その対策としているのが「rel=”nofollow”」です。
-なので、SEO的にページの価値を上げていきたい人は、他ドメインへのリンクには「rel=”nofollow”」を設定しておくことをオススメします。
-
-
-### 3-4. 画像にリンクを加えよう
+## 2. Facebookの設定
 
 
 ```
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>新田章太のプロフィール</title>
-    </head>
-    <body>
-        <h1>新田章太</h1>
-        <a href="https://facebook.com/maximum80"><img src="./images/avatar.png" alt="新田章太のプロフィール画像" width="150" height="150"></a>
-        <h2>基本プロフィール</h2>
-        <div class="profile">
-          <p><a href="https://givery.co.jp" target="_black" rel="nofollow">株式会社ギブリー</a>取締役。エンジニアの市場価値を高めるために仕事をしています。
-          CODEPREPというオンラインプログラミング学習サービスをつくっています。
-          </p>
+        <!-- Open Graph Protocol の設定-->
+        <meta property="og:site_name" content="新田章太のプロフィール" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://givery-technology.github.io/it-training/html-4/mycard/index.html" />
+        <meta property="og:image" content="https://givery-technology.github.io/it-training/html-4/mycard/images/haru.jpg" />
+        <meta property="og:title" content="新田章太のプロフィール" />
+        <meta property="og:description" content="株式会社ギブリー取締役。エンジニアの市場価値を高めるために仕事をしています。CODEPREPというオンラインプログラミング学習サービスをつくっています。" />
+        <!-- ここまで -->
+
+        <!-- Facebookの設定 -->
+        <meta property="fb:app_id" content="120388268586719" />
 ```
 
 
+### fb:app_id の設定
+fb:appidは、FacebookにOGPを表示させるためには必須のプロパティとなります。  
+fb:appid以外にもfb:adminsも使うことができます。ただし、fb:adminsの場合、adminIDという個人IDを使うことになるため、個人情報を晒しているようなものです。出来ればfb:app_idを使うほうが良いです。
 
-## 4. よく使うインライン要素
 
+### Debugger
+[Facebook Debugger](https://developers.facebook.com/tools/debug/)
+
+
+
+## 3. Twitter Cardの設定
 
 
 ```
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>新田章太のプロフィール</title>
-    </head>
-    <body>
-        <h1>新田章太</h1>
-        <a href="https://facebook.com/maximum80"><img src="./images/avatar.png" alt="新田章太のプロフィール画像" width="150" height="150"></a>
-        <h2>基本プロフィール</h2>
-        <div class="profile">
-          <p><a href="https://givery.co.jp" target="_black" rel="nofollow">株式会社ギブリー</a>取締役。<strong>エンジニアの市場価値を高めるため</strong>に仕事をしています。<br>
-          CODEPREPというオンラインプログラミング学習サービスをつくっています。
-          </p>
+        <!-- Open Graph Protocol の設定-->
+        <meta property="og:site_name" content="新田章太のプロフィール" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://givery-technology.github.io/it-training/html-4/mycard/index.html" />
+        <meta property="og:image" content="https://givery-technology.github.io/it-training/html-4/mycard/images/haru.jpg" />
+        <meta property="og:title" content="新田章太のプロフィール" />
+        <meta property="og:description" content="株式会社ギブリー取締役。エンジニアの市場価値を高めるために仕事をしています。CODEPREPというオンラインプログラミング学習サービスをつくっています。" />
+        <!-- ここまで -->
+
+        <!-- Facebookの設定 -->
+        <meta property="fb:app_id" content="120388268586719" />
+        <!-- Twitter Cardの設定-->
+        <meta name="twitter:site" content="@maximum_80" />
+        <meta name="twitter:card" content="summary" />
+
 ```
 
 
-### 4-1. `<br>`要素
+Twitter CardsとはURLを含んだツイートに、そのページのタイトル・概要・アイキャッチ画像（サムネイル）を表示させる仕組みです。
 
 
-#### br = break
-brは、「break」の略で、br要素は改行を表します。テキストの現在行を終え（強制改行し）、次の行に移行します。
+### twitter:card
+twitter:cardは、twitterでOGPを表示させるときの表示タイプを指定します。
 
 
-#### [注意]改行タグをスペース（行間）を開ける目的では使用しない
-段落を分けたいときはブロック要素を用いること。
+#### content="summary"
+最も一般的な表示形式です。
+#### content="summarylargeimage"
+Summaryカードの画像がより大きく表示される、形式的にはFacebookのOGPに近いタイプのカードです。
 
 
-### 4-2. `<strong>`要素と`<span>`要素
+#### content="photo"
+画像が優先して表示されるタイプです。画像をクリックするとツイート内容が表示されます。
+ビジュアル訴求が重要な業種（アパレルや飲食店等）にオススメです。
+#### content="gallery"
+一度の投稿で複数枚の画像を表示させることができるカードです。
+表示させる画像は最大4枚まで選択することができます。
 
 
-#### strong要素
-strong 要素（<strong>）は重要なテキストを表します。ほとんどのブラウザーのデフォルトスタイルでは、太字で描画するように指定されています。
+#### content="app"
+アプリを紹介する際に利用したいカードです。
+アプリケーションの名前や紹介文、アプリアイコンだけでなく、評価や価格なども表示されます。
 
 
-#### span要素
-span要素は意味を持たない区分を表すインライン要素です。
-
-
-div要素とは似た役割を持っていますが、違いとしては改行が入らないことです。
-
-
-CSSで特定の区分をスタイリングしたいときに利用します。
-
-
-
-## 5. まとめ
-
-
-### 要素
-画像を表示する上で使う。 `alt`での適切な説明が重要
-
-
-### アンカー要素
-内部や外部へのリンクを表す。SEO内部対策で非常に重要。  
-
-
-### よく使うインライン要素
-`<br>,<strong>,<span>`
+### Twitter Card Calidator
+[Twitter Card Validator](https://cards-dev.twitter.com/validator)
